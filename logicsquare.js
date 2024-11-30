@@ -11,5 +11,11 @@ for (i = 0; i<16; i++){
     divs.style.border = "3px solid black";
     divs.style.margin = "0.5px"
     div_1.appendChild(divs);
+    divs.addEventListener("mouseover", () => {
+        divs.style.backgroundColor = "red";
+    })
+    divs.addEventListener("mouseout", () => {
+        divs.style.backgroundColor = "white";
+    })
 }
 
