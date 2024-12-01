@@ -10,6 +10,10 @@ div_1.style.margin = "20px auto";
 div_1.style.display = "flex";
 div_1.style.flexWrap = "wrap";
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
 const button = document.createElement("button");
 button.textContent = "Num of squares";
 button.style.padding = "10px";
@@ -26,16 +30,22 @@ button.addEventListener("click", ()=>{
         divs.style.width = ((grid_width/num_squares)-4) + "px";
         divs.style.height = ((grid_width/num_squares)-4) + "px";
         divs.style.border = "1px solid black";
-        divs.style.margin = "1px"
+        divs.style.margin = "1px";
+        divs.style.background = "rgba(0, 0, 0, 0)"
+        divs.style.opacity = "0";
         div_1.appendChild(divs);
         divs.addEventListener("mouseover", () => {
-            divs.style.backgroundColor = "red";
-        })
-        divs.addEventListener("mouseout", () => {
-            divs.style.backgroundColor = "white";
+            divs.style.background = "rgba(" + getRandomInt(256) + "," + getRandomInt(256) + "," + getRandomInt(256) + ")";
+            let pp = divs.style.getPropertyValue("opacity");
+            if (pp<1){
+                pp = parseFloat(pp) + 0.1;
+                divs.style.opacity = pp;
+            }
         })
     }
 })
 div_0.appendChild(button);
+
+
 
 
